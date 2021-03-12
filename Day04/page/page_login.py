@@ -12,24 +12,24 @@ from selenium.webdriver.common.by import By
 
 from Day04.base.base import Base
 
-login_username = [(By.CLASS_NAME, 'el-input__inner'), 1]
-login_password = [(By.CLASS_NAME, 'el-input__inner'), 2]
-login_btn = [(By.CLASS_NAME, 'login__button'), 0]
+login_username = (By.CLASS_NAME, 'el-input__inner', 1)
+login_password = (By.CLASS_NAME, 'el-input__inner', 2)
+login_btn = (By.CLASS_NAME, 'login__button', 0)
 
 
 class PageLogin(Base):
 
     def input_username(self, username):
         # 输入手机号
-        self.base_input(login_username[0], login_username[1], username)
+        self.base_input(login_username, username)
 
     def input_password(self, password):
         # 输入密码
-        self.base_input(login_password[0], login_password[1], password)
+        self.base_input(login_password, password)
 
     def click_login_button(self):
         # 点击登录
-        self.base_click(login_btn[0], login_btn[1])
+        self.base_click(login_btn)
 
     def get_current_url(self):
         return self.base_get_current_url()
