@@ -22,7 +22,8 @@ class Base:
         :return: 返回查找到的元素
         """
         # 显示等待
-        WebDriverWait(self.driver, timeout=timeout, poll_frequency=poll).until(lambda x: x.find_element(*loc))
+        ele = WebDriverWait(self.driver, timeout=timeout, poll_frequency=poll).until(lambda x: x.find_element(*loc))
+        return ele
 
     # 点击
     def base_click(self, loc):

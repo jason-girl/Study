@@ -33,7 +33,7 @@ class TestCalc(unittest.TestCase):
         GetDriver().quit_driver()
 
     # 测试加法 方法
-    @parameterized.expand([(1, 2, 3)])
+    @parameterized.expand(get_data()  )
     def test_add_calc(self, a, b, expect):
         self.calc.page_add_calc(a, b)
         try:
