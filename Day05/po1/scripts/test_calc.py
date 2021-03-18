@@ -10,10 +10,15 @@ import unittest
 from base.get_driver import GetDriver
 from page.page_calc import PageCalc
 from parameterized import parameterized
+from tool.read_json import read_json
 
 
 def get_data():
-    return [(1, 2, 3), (1231232, 233221, 1464453)]
+    datas = read_json("calc.json")
+    arrs = []
+    for data in datas.values():
+        arrs.append((data['a'], data['b'], data['expect']))
+    return arrs
 
 
 class TestCalc(unittest.TestCase):
